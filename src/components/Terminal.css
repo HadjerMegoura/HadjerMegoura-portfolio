@@ -1,0 +1,127 @@
+.terminal-window {
+  width: 100%;
+  overflow: hidden;
+  border: var(--border-width-thin) solid var(--terminal-border);
+  border-radius: var(--radius-lg);
+  background: var(--terminal-bg);
+  box-shadow: var(--shadow-terminal);
+  color: var(--terminal-text);
+  font-family: var(--font-mono);
+}
+
+.terminal-window__bar {
+  position: relative;
+  display: flex;
+  min-height: 2.65rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--space-4);
+  border-bottom: var(--border-width-thin) solid var(--terminal-border);
+  background: linear-gradient(
+    180deg,
+    var(--terminal-bar-top),
+    var(--terminal-bar)
+  );
+}
+
+.terminal-window__lights {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.terminal-window__light {
+  width: 0.58rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.terminal-window__light--close {
+  background: var(--color-window-red);
+}
+.terminal-window__light--minimize {
+  background: var(--color-window-yellow);
+}
+.terminal-window__light--maximize {
+  background: var(--color-window-green);
+}
+
+.terminal-window__title {
+  position: absolute;
+  left: 50%;
+  color: var(--terminal-muted);
+  font-size: var(--font-size-xs);
+  transform: translateX(-50%);
+}
+
+.terminal-window__menu {
+  color: var(--terminal-muted);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+}
+
+.terminal-window__body {
+  padding: var(--space-5);
+  background-image: linear-gradient(var(--terminal-grid) 1px, transparent 1px);
+  background-size: 100% 1.8rem;
+}
+
+.terminal-window__line {
+  margin: 0;
+  color: var(--terminal-text);
+  font-size: clamp(var(--font-size-xs), 1.5vw, var(--font-size-sm));
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.terminal-window__line--command {
+  color: var(--terminal-text);
+  font-weight: var(--font-weight-medium);
+}
+
+.terminal-window__line--output {
+  padding-left: 1.05rem;
+  color: var(--terminal-muted);
+}
+
+.terminal-window__spacer {
+  height: 0.55rem;
+}
+
+.terminal-window__prompt {
+  margin-right: 0.45rem;
+  color: var(--terminal-prompt);
+}
+
+.terminal-window__cursor {
+  display: inline-block;
+  margin-left: 0.12rem;
+  color: var(--terminal-cursor);
+  font-weight: var(--font-weight-bold);
+  animation: terminal-cursor-blink 1s steps(2, start) infinite;
+}
+
+@keyframes terminal-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 440px) {
+  .terminal-window__bar {
+    min-height: 2.4rem;
+    padding-inline: var(--space-3);
+  }
+  .terminal-window__body {
+    padding: var(--space-4) var(--space-3);
+  }
+  .terminal-window__line {
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-window__cursor {
+    animation: none;
+  }
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "ekiclick",
+    "category": "Fintech / E-commerce",
+    "name": "Ekiclick",
+    "notes": ["Online shopping and consumer financing."],
+    "technologies": ["Angular", "TypeScript", "Tailwind"],
+    "logo": "ekiclick.svg",
+    "url": "https://alsalamalgeria.ekiclik.dz/#/home",
+    "status": "Live",
+    "screenshots": [],
+    "role": "Angular front-end development with TypeScript and Tailwind CSS.",
+    "impact": "Brings online shopping and consumer financing together in one platform.",
+    "challenge": "Creating a clear shopping experience around the consumer financing flow.",
+    "caseStudyUrl": ""
+  },
+  {
+    "id": "wissal-univers",
+    "category": "E-commerce",
+    "name": "Wissal Univers",
+    "notes": ["Online store for electronics, appliances, and other products."],
+    "technologies": ["Angular", "Tailwind", "Spring boot", "PostgreSQL"],
+    "logo": "wissal_univers.png",
+    "url": "https://wiunivers.com/home",
+    "status": "Working on version 2",
+    "screenshots": [],
+    "role": "Angular front-end development with Tailwind CSS and API integration.",
+    "impact": "Provides an online storefront for electronics, appliances, and more.",
+    "challenge": "Supporting an evolving e-commerce platform while version 2 is in progress.",
+    "caseStudyUrl": ""
+  },
+  {
+    "id": "tutoria-cergy",
+    "category": "Education / Landing Page",
+    "name": "Tutoria Cergy",
+    "notes": ["Tutoring services, academic support, and appointment booking."],
+    "technologies": ["Angular", "Tailwind"],
+    "logo": "tutoria2.webp",
+    "url": "https://tutoriacergy.fr/",
+    "status": "Live",
+    "screenshots": [],
+    "role": "Built responsive landing pages using Angular and Tailwind CSS.",
+    "impact": "Introduces tutoring, academic support, and appointment booking services.",
+    "challenge": "Translating design specifications into reusable, responsive components.",
+    "caseStudyUrl": ""
+  },
+  {
+    "id": "car-rental",
+    "category": "Car Rental Service",
+    "name": "Car Rental",
+    "notes": ["An admin dashboard for managing car rentals and vehicles."],
+    "technologies": [
+      "TypeScript",
+      "React",
+      "Tailwind",
+      "Spring boot",
+      "PostgreSQL",
+      "Vite"
+    ],
+    "logo": "car_rental.png",
+    "url": null,
+    "status": "In Progress",
+    "screenshots": [],
+    "role": "Building an administration dashboard with React and TypeScript.",
+    "impact": "Centralizes car rental and vehicle management for administrators.",
+    "challenge": "Connecting dashboard workflows to a Spring Boot and PostgreSQL stack.",
+    "caseStudyUrl": ""
+  }
+]

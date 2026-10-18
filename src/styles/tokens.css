@@ -1,0 +1,250 @@
+/* Dark theme: deep indigo surfaces, lavender accent, near-black terminal as the deepest layer. */
+:root {
+  /* Palette — source swatches */
+  --palette-pink: #fadcfe;
+  --palette-aqua: #c7f3f6;
+  --palette-cream: #fefdf9;
+  --palette-sky: #a4c6e9;
+  --palette-periwinkle: #838bcc;
+  --palette-lavender: #b8aee3;
+
+  /* Color — page surfaces */
+  --color-canvas: #0e0f1c;
+  --color-surface: #171830;
+  --color-surface-raised: #1b1c34;
+  --color-surface-inset: #12132a;
+  --color-surface-hover: #23244a;
+  --color-scrim: rgb(5 6 15 / 65%);
+  --color-glass: rgb(23 24 48 / 72%);
+  --color-stat-surface: rgb(255 255 255 / 4%);
+  --color-glass-top: rgb(255 255 255 / 8%);
+  --color-glass-bottom: rgb(255 255 255 / 3%);
+  --color-logo-tile-top: #ffffff;
+  --color-logo-tile-bottom: #eeeef9;
+  --highlight-inset: rgb(255 255 255 / 6%);
+
+  /* Color — text (AA on canvas and surfaces) */
+  --color-text-primary: #eceefb;
+  --color-text-secondary: #c3c7e6;
+  --color-text-muted: #9a9fc9;
+  --color-text-inverse: #1e2347;
+  --color-on-accent: #1e2347;
+
+  /* Color — accent */
+  --color-accent: #b8aee3;
+  --color-accent-hover: #a89cdd;
+  --color-accent-pressed: #9788d3;
+  --color-accent-soft: rgb(184 174 227 / 14%);
+  --color-accent-border: rgb(184 174 227 / 38%);
+  --color-accent-text: #c9c0f0;
+  --color-accent-label: #c9c0f0;
+  --color-focus: #b8aee3;
+  --color-action: var(--color-accent);
+  --color-action-hover: var(--color-accent-hover);
+  --color-action-pressed: var(--color-accent-pressed);
+  --color-action-border: #9d92d4;
+  --color-action-edge: #6c5fb5;
+  --color-action-top: #cfc8ef;
+  --color-link-text: #a4c6e9;
+
+  /* Color — tech tag (shared by Projects and Tech Stack) */
+  --color-tag-bg: rgb(184 174 227 / 12%);
+  --color-tag-text: #d5cdf5;
+  --color-tag-border: rgb(184 174 227 / 28%);
+  --color-badge-bg: var(--color-tag-bg);
+  --color-badge-border: var(--color-tag-border);
+  --color-badge-text: var(--color-tag-text);
+  --color-pink-soft: rgb(250 220 254 / 12%);
+  --color-pink-border: rgb(250 220 254 / 30%);
+  --color-pink-text: #f6c4fb;
+
+  /* Color — status (mint = live/available/expert, amber = in progress/working) */
+  --color-status-positive: #7fe0c8;
+  --color-status-positive-dot: #3dbfa0;
+  --color-status-positive-soft: rgb(61 191 160 / 14%);
+  --color-status-positive-border: rgb(61 191 160 / 40%);
+  --color-status-warning: #f2c866;
+  --color-status-warning-dot: #e3a82b;
+  --color-status-warning-soft: rgb(227 168 43 / 14%);
+  --color-status-warning-border: rgb(227 168 43 / 40%);
+  --color-status-info: #a4c6e9;
+  --color-highlight-pink: #f0a6f7;
+  --color-highlight-violet: #c9bdf5;
+  --color-highlight-yellow: #f2c866;
+  --color-window-red: #f07178;
+  --color-window-yellow: #f2c866;
+  --color-window-green: #5cc98a;
+
+  /* Color — borders, dividers, and decorative details */
+  --color-border: #2a2c52;
+  --color-border-strong: #383b69;
+  --color-border-control: #7b82c4;
+  --color-border-edge: #080914;
+  --color-divider: rgb(255 255 255 / 8%);
+
+  /* Terminal — the only dark element */
+  --terminal-bg: #090a14;
+  --terminal-bar: #11122a;
+  --terminal-bar-top: #1b1d3c;
+  --terminal-border: #2e3160;
+  --terminal-text: #eceefb;
+  --terminal-muted: #a3a7d0;
+  --terminal-prompt: #7fe0c8;
+  --terminal-cursor: var(--palette-pink);
+  --terminal-grid: rgb(255 255 255 / 4%);
+
+  /* Typography — families */
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-display: var(--font-body);
+  --font-body:
+    "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial,
+    sans-serif;
+
+  /* Typography — sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-md: 0.875rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.75rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-hero: clamp(2.5rem, 5.5vw, 4rem);
+  --font-size-h1: var(--font-size-hero);
+  --font-size-h2: clamp(1.75rem, 3.2vw, 2.5rem);
+  --font-size-h3: var(--font-size-xl);
+  --font-size-body: var(--font-size-md);
+  --font-size-small: var(--font-size-sm);
+  --font-size-eyebrow: var(--font-size-xs);
+  --font-size-label: var(--font-size-xs);
+
+  /* Typography — weights, leading, and tracking */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.12;
+  --line-height-snug: 1.3;
+  --line-height-normal: 1.55;
+  --letter-spacing-tight: -0.03em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.045em;
+
+  /* Spacing — 4px-based scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Shape and borders */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-pill: 999px;
+  --border-width-thin: 1px;
+  --border-width-emphasis: 2px;
+
+  /* Elevation and focus */
+  /* Elevation — contact shadow + diffuse lavender shadow + inner top highlight */
+  --elevation-0:
+    0 1px 1px rgb(0 0 0 / 30%), inset 0 1px 0 var(--highlight-inset);
+  --elevation-1:
+    0 1px 1px rgb(0 0 0 / 30%), 0 6px 16px rgb(0 0 0 / 22%),
+    inset 0 1px 0 var(--highlight-inset);
+  --elevation-2:
+    0 1px 2px rgb(0 0 0 / 34%), 0 10px 28px rgb(0 0 0 / 28%),
+    0 28px 56px -16px rgb(0 0 0 / 34%), inset 0 1px 0 var(--highlight-inset);
+  --elevation-3:
+    0 2px 4px rgb(0 0 0 / 38%), 0 16px 36px rgb(0 0 0 / 34%),
+    0 40px 72px -20px rgb(0 0 0 / 44%), inset 0 1px 0 var(--highlight-inset);
+  --shadow-card: var(--elevation-2);
+  --shadow-popover: var(--elevation-3);
+  --shadow-terminal:
+    0 2px 4px rgb(0 0 0 / 40%), 0 24px 60px rgb(0 0 0 / 50%),
+    0 0 80px -16px rgb(184 174 227 / 30%), inset 0 1px 0 rgb(255 255 255 / 8%),
+    inset 0 -24px 40px rgb(0 0 0 / 20%);
+  --shadow-button-primary:
+    0 3px 0 var(--color-action-edge), 0 8px 14px rgb(0 0 0 / 30%),
+    inset 0 1px 0 rgb(255 255 255 / 55%);
+  --shadow-button-primary-hover:
+    0 4px 0 var(--color-action-edge), 0 14px 24px -4px rgb(184 174 227 / 38%),
+    inset 0 1px 0 rgb(255 255 255 / 55%);
+  --shadow-button-primary-pressed:
+    0 1px 0 var(--color-action-edge), 0 2px 4px rgb(0 0 0 / 30%),
+    inset 0 1px 0 rgb(255 255 255 / 30%);
+  --shadow-button-secondary:
+    0 3px 0 var(--color-border-edge), 0 6px 12px rgb(0 0 0 / 25%),
+    inset 0 1px 0 var(--highlight-inset);
+  --shadow-button-secondary-hover:
+    0 4px 0 var(--color-border-edge), 0 10px 16px rgb(0 0 0 / 30%),
+    inset 0 1px 0 var(--highlight-inset);
+  --shadow-button-secondary-pressed:
+    0 1px 0 var(--color-border-edge), 0 2px 4px rgb(0 0 0 / 25%),
+    inset 0 1px 0 var(--highlight-inset);
+  --shadow-soft: 0 4px 14px rgb(0 0 0 / 28%);
+  --ring-positive: 0 0 0 3px rgb(61 191 160 / 25%);
+  --focus-ring: 0 0 0 2px var(--color-canvas), 0 0 0 4px var(--color-focus);
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-normal: 220ms;
+  --duration-reveal: 600ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: var(--ease-standard);
+  --reveal-distance: 14px;
+
+  /* Gradients */
+  --gradient-surface: linear-gradient(180deg, #1c1d38 0%, #151628 100%);
+  --gradient-text-end: var(--palette-lavender);
+  --gradient-hairline: linear-gradient(
+    90deg,
+    var(--palette-lavender),
+    var(--palette-pink),
+    var(--palette-aqua)
+  );
+  --gradient-mesh:
+    radial-gradient(
+      40rem 26rem at 12% 8%,
+      rgb(184 174 227 / 16%),
+      transparent 70%
+    ),
+    radial-gradient(
+      36rem 24rem at 88% 4%,
+      rgb(199 243 246 / 9%),
+      transparent 70%
+    ),
+    radial-gradient(
+      34rem 22rem at 55% 32%,
+      rgb(250 220 254 / 8%),
+      transparent 70%
+    );
+
+  /* Layout hints visible in the reference */
+  --content-max-width: 82rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+  --section-space-block: clamp(2.5rem, 6vw, 4.5rem);
+  --section-content-gap: clamp(1.5rem, 3vw, 2.5rem);
+  --header-top: 0.75rem;
+  --header-scroll-offset: 6rem;
+  --card-padding: var(--space-6);
+  --card-gap: var(--space-3);
+  --button-height: 2.75rem;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --header-scroll-offset: 8.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-top: 0.35rem;
+  }
+}

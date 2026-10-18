@@ -1,0 +1,381 @@
+/* Shared visual rules reused by several sections. */
+
+/* Card surface: layered gradient, hairline border, inner top highlight. */
+.about-card,
+.about-highlight,
+.shared-project-card,
+.tech-card,
+.experience-card,
+.education-card,
+.contact-card,
+.contact-resume {
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--gradient-surface);
+  box-shadow: var(--elevation-1);
+  transition:
+    border-color var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+
+/* Elevation by importance. */
+.about-card,
+.shared-project-card {
+  box-shadow: var(--elevation-2);
+}
+
+.contact-card {
+  box-shadow:
+    var(--elevation-3),
+    0 0 90px -30px rgb(184 174 227 / 28%);
+}
+
+.about-highlight:hover,
+.tech-card:hover,
+.experience-card:hover,
+.education-card:hover,
+.contact-resume:hover {
+  border-color: var(--color-accent-border);
+  box-shadow: var(--elevation-2);
+}
+
+.about-card:hover,
+.shared-project-card:hover {
+  border-color: var(--color-accent-border);
+  box-shadow: var(--elevation-3);
+}
+
+/* Cursor spotlight on project cards (fine pointers only). */
+.shared-project-card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    18rem circle at var(--mx, 50%) var(--my, 0%),
+    rgb(184 174 227 / 18%),
+    transparent 65%
+  );
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .shared-project-card:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Tech tag: one definition for Projects and Tech Stack. */
+.shared-project-card__technologies li,
+.tech-stack-panel__count {
+  padding: 0.25rem 0.5rem;
+  border: var(--border-width-thin) solid var(--color-tag-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-tag-bg);
+  box-shadow: var(--elevation-0);
+  color: var(--color-tag-text);
+  font: var(--font-weight-medium) var(--font-size-xs)/1.3 var(--font-mono);
+  white-space: nowrap;
+}
+
+/* Availability dot with a soft pulse. */
+.hero-info__status-dot,
+.contact-card__status {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--color-status-positive-dot);
+  box-shadow: var(--ring-positive);
+  animation: status-pulse 2.4s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgb(61 191 160 / 25%);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(61 191 160 / 8%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card,
+  .about-highlight,
+  .shared-project-card,
+  .tech-card,
+  .experience-card,
+  .education-card,
+  .contact-card,
+  .contact-resume {
+    transition: none;
+  }
+
+  .hero-info__status-dot,
+  .contact-card__status {
+    animation: none;
+  }
+}
+
+/* Gradient hairline along the top edge of the major cards. */
+.about-card,
+.shared-project-card,
+.contact-card,
+.contact-resume {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-card::before,
+.shared-project-card::before,
+.contact-card::before,
+.contact-resume::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--gradient-hairline);
+  content: "";
+  opacity: 0.8;
+}
+
+/* Vertical timeline shared by Experience and Education. */
+.experience-list,
+.education-list {
+  position: relative;
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0 0 0 2.25rem;
+  list-style: none;
+}
+
+.experience-list::before,
+.education-list::before {
+  position: absolute;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 0.5rem;
+  width: 2px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    180deg,
+    var(--palette-lavender),
+    var(--palette-pink) 60%,
+    var(--palette-aqua)
+  );
+  content: "";
+}
+
+.experience-card,
+.education-card {
+  position: relative;
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-6);
+}
+
+.experience-card::before,
+.education-card::before {
+  position: absolute;
+  top: 1.7rem;
+  left: calc(-2.125rem + 1px);
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--color-accent-pressed);
+  border-radius: 50%;
+  background: var(--color-accent-pressed);
+  box-shadow:
+    0 0 0 4px var(--color-canvas),
+    0 0 0 5px var(--color-accent-border);
+  content: "";
+  transition: background-color var(--duration-reveal) var(--ease-out);
+}
+
+/* Nodes fill with the accent as the card scrolls into view. */
+.reveal-ready:not(.is-visible).experience-card::before,
+.reveal-ready:not(.is-visible).education-card::before {
+  background: var(--color-surface);
+}
+
+.experience-card:has(.experience-card__current)::before {
+  border-color: var(--color-status-positive-dot);
+  background: var(--color-status-positive-dot);
+  box-shadow:
+    0 0 0 4px var(--color-canvas),
+    0 0 0 8px rgb(61 191 160 / 22%);
+}
+
+@media (max-width: 640px) {
+  .experience-list,
+  .education-list {
+    padding-left: 1.5rem;
+  }
+
+  .experience-list::before,
+  .education-list::before {
+    left: 0.3rem;
+  }
+
+  .experience-card::before,
+  .education-card::before {
+    left: calc(-1.4rem + 1px);
+  }
+}
+
+/* Tactile buttons: raised edge, top highlight, pressed state. */
+:root
+  :is(
+    .hero-actions__button--primary,
+    .shared-project-card__action:not(.shared-project-card__action--secondary),
+    .contact-button--primary,
+    .modal__action--primary,
+    .site-header__contact
+  ) {
+  border: var(--border-width-thin) solid var(--color-action-border);
+  background: linear-gradient(
+    180deg,
+    var(--color-action-top),
+    var(--color-action)
+  );
+  box-shadow: var(--shadow-button-primary);
+  color: var(--color-on-accent);
+}
+
+:root
+  :is(
+    .hero-actions__button--primary,
+    .shared-project-card__action:not(.shared-project-card__action--secondary),
+    .contact-button--primary,
+    .modal__action--primary,
+    .site-header__contact
+  ):hover {
+  background: linear-gradient(
+    180deg,
+    var(--color-action),
+    var(--color-action-hover)
+  );
+  box-shadow: var(--shadow-button-primary-hover);
+}
+
+:root
+  :is(
+    .hero-actions__button--primary,
+    .shared-project-card__action:not(.shared-project-card__action--secondary),
+    .contact-button--primary,
+    .modal__action--primary,
+    .site-header__contact
+  ):active {
+  background: var(--color-action-pressed);
+  box-shadow: var(--shadow-button-primary-pressed);
+  transform: translateY(2px);
+}
+
+:root
+  :is(
+    .hero-actions__button--secondary,
+    .shared-project-card__action--secondary,
+    .contact-button--quiet,
+    .modal__action--secondary
+  ) {
+  border: var(--border-width-thin) solid var(--color-border-control);
+  background: linear-gradient(
+    180deg,
+    var(--color-glass-top),
+    var(--color-glass-bottom)
+  );
+  backdrop-filter: blur(6px);
+  box-shadow: var(--shadow-button-secondary);
+  color: var(--color-text-primary);
+}
+
+:root
+  :is(
+    .hero-actions__button--secondary,
+    .shared-project-card__action--secondary,
+    .contact-button--quiet,
+    .modal__action--secondary
+  ):hover {
+  border-color: var(--color-accent-text);
+  background: linear-gradient(
+    180deg,
+    var(--color-glass-top),
+    var(--color-surface-hover)
+  );
+  box-shadow: var(--shadow-button-secondary-hover);
+}
+
+:root
+  :is(
+    .hero-actions__button--secondary,
+    .shared-project-card__action--secondary,
+    .contact-button--quiet,
+    .modal__action--secondary
+  ):active {
+  background: var(--color-surface-hover);
+  box-shadow: var(--shadow-button-secondary-pressed);
+  transform: translateY(2px);
+}
+
+:root
+  :is(
+    .hero-actions__button,
+    .shared-project-card__action,
+    .contact-button,
+    .modal__action,
+    .site-header__contact
+  ):focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shared-project-card,
+  .tech-card,
+  .experience-card,
+  .education-card,
+  .contact-resume {
+    transition:
+      border-color var(--duration-normal) var(--ease-standard),
+      box-shadow var(--duration-normal) var(--ease-standard),
+      transform var(--duration-normal) var(--ease-standard);
+  }
+
+  .shared-project-card:hover,
+  .tech-card:hover,
+  .experience-card:hover,
+  .education-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root
+    :is(
+      .hero-actions__button,
+      .shared-project-card__action,
+      .contact-button,
+      .modal__action,
+      .site-header__contact
+    ):is(:hover, :active) {
+    transform: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.count-up {
+  font-variant-numeric: tabular-nums;
+}

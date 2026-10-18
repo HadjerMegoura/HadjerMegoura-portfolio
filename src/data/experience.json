@@ -1,0 +1,36 @@
+[
+  {
+    "id": "wissal-systems",
+    "title": "Software Engineer — Angular Front-End & API Integration",
+    "company": "Wissal Systems Algérie · Sétif, Algeria",
+    "period": "03/2025 — Present",
+    "description": [
+      "Own front-end delivery for a production Angular application.",
+      "Build role-based access control, NgRx state management, and reusable components.",
+      "Integrate and debug REST APIs, and contribute to secure session flows.",
+      "Contribute to the Angular 16-to-18 upgrade."
+    ]
+  },
+  {
+    "id": "yim-media",
+    "title": "Front-End Software Engineer (Freelance)",
+    "company": "Yim Media · Client: Tutoria Cergy · Remote / Paris, France",
+    "period": "01/2026 — 06/2026",
+    "description": [
+      "Built responsive, pixel-perfect landing pages for an educational platform.",
+      "Translated Figma specifications into reusable Angular and Tailwind CSS components.",
+      "Polished page layouts and interactions across screen sizes."
+    ]
+  },
+  {
+    "id": "bmsoft",
+    "title": "Software Engineer — Full-Stack Developer (Delphi / SQL)",
+    "company": "BMSoft · Sétif, Algeria",
+    "period": "01/2024 — 08/2024",
+    "description": [
+      "Delivered end-to-end features for enterprise applications.",
+      "Implemented business logic in Delphi 10 and maintained SQL Server queries.",
+      "Improved client-facing interfaces with JavaScript and jQuery."
+    ]
+  }
+]

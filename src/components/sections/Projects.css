@@ -1,0 +1,28 @@
+.projects-grid {
+  min-width: 0;
+}
+
+.projects-grid__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: var(--card-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projects-grid__item {
+  display: flex;
+  min-width: 0;
+}
+
+.projects-grid__item .shared-project-card {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .projects-grid__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
