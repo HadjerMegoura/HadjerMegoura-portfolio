@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Local-only design references and coding instructions
+/design/
+/github/
+
+# Environment files may contain secrets; keep an example template shareable
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

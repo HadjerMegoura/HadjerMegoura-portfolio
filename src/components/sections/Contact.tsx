@@ -3,10 +3,7 @@ import contact from "../../data/contact.json";
 import SectionHeader from "../shared/SectionHeader";
 import "./Contact.css";
 
-const resumeUrl = new URL(
-  "../../../design/Hadjer_Megoura_CV.pdf",
-  import.meta.url,
-).href;
+const resumeUrl = "/Hadjer_Megoura_CV.pdf";
 
 export default function Contact() {
   const [copyLabel, setCopyLabel] = useState("Copy");
