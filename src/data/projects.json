@@ -60,7 +60,28 @@
     "logo": "car_rental.png",
     "url": null,
     "status": "In Progress",
-    "screenshots": [],
+    "screenshots": [
+      {
+        "src": "car_rental1.png",
+        "alt": "Wheelio car rental fleet management sign-in screen"
+      },
+      {
+        "src": "car_rental2.png",
+        "alt": "Wheelio form for creating a car rental"
+      },
+      {
+        "src": "car_rental3.png",
+        "alt": "Wheelio administrator account and security settings"
+      },
+      {
+        "src": "car_rental4.png",
+        "alt": "Wheelio vehicle inventory and car listings"
+      },
+      {
+        "src": "car_rental5.png",
+        "alt": "Wheelio bookings list with rental dates and client details"
+      }
+    ],
     "role": "Building an administration dashboard with React and TypeScript.",
     "impact": "Centralizes car rental and vehicle management for administrators.",
     "challenge": "Connecting dashboard workflows to a Spring Boot and PostgreSQL stack.",

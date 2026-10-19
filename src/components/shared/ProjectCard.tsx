@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ScreenshotGallery from "./ScreenshotGallery";
 import type { ProjectEvidence } from "./projectTypes";
 import "./ProjectCard.css";
@@ -65,6 +65,7 @@ export default function ProjectCard({
   actionLabel = "View Live Project",
   onViewProject,
 }: ProjectCardProps) {
+  const projectActionRef = useRef<HTMLButtonElement>(null);
   const [logoLoadFailed, setLogoLoadFailed] = useState(false);
   const [detailsVisible, setDetailsVisible] = useState(false);
   const projectNotes = [notes, [role, impact, challenge]]
@@ -103,6 +104,7 @@ export default function ProjectCard({
         logoFailed={logoLoadFailed}
         onLogoError={() => setLogoLoadFailed(true)}
         openRequest={openScreenshotsRequest}
+        returnFocusRef={projectActionRef}
         screenshots={screenshots}
         title={title}
       />
@@ -137,6 +139,7 @@ export default function ProjectCard({
             aria-label={`${actionLabel}: ${title}`}
             className="shared-project-card__action"
             onClick={onViewProject}
+            ref={projectActionRef}
             type="button"
           >
             {actionLabel}
