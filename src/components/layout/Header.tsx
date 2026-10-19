@@ -73,9 +73,13 @@ export default function Header() {
   return (
     <header className="site-header" data-scrolled={scrolled} ref={headerRef}>
       <a className="site-brand" href="#top" aria-label="Hadjer Megoura home">
-        <span className="site-brand__mark" aria-hidden="true">
-          HM
-        </span>
+        <img
+          alt=""
+          className="site-brand__avatar"
+          height="36"
+          src="/hadjer.jpeg"
+          width="36"
+        />
         <span className="site-brand__name">Hadjer Megoura</span>
         <span className="site-brand__role">Software Engineer</span>
       </a>

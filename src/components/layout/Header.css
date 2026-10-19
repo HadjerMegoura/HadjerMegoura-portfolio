@@ -48,20 +48,14 @@
   text-decoration: none;
 }
 
-.site-brand__mark {
-  display: grid;
-  width: 1.8rem;
+.site-brand__avatar {
+  display: block;
+  width: 2rem;
   aspect-ratio: 1;
-  place-items: center;
-  border: var(--border-width-thin) solid var(--color-border-strong);
-  border-radius: var(--radius-sm);
-  color: var(--color-accent-text);
-  background: linear-gradient(
-    145deg,
-    var(--palette-pink),
-    var(--color-accent-soft)
-  );
-  font: var(--font-weight-bold) var(--font-size-xs)/1 var(--font-mono);
+  flex: 0 0 auto;
+  border: 2px solid var(--color-accent-border);
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .site-brand__name {
